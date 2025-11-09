@@ -8,4 +8,6 @@ def setup():
     driver = webdriver.Firefox(options=options)
     driver.get('http://www.automationpractice.pl/index.php')
     driver.implicitly_wait(5000)
+
+    yield driver
     driver.close()

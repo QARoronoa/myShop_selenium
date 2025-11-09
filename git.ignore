@@ -1,54 +1,72 @@
 # ==========================
-# Python
+# 🐍 Python
 # ==========================
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*$py.class
 *.pdb
 *.egg-info/
 *.egg
 *.log
 
-# Virtual env
+# ==========================
+# 📦 Environnements virtuels
+# ==========================
 .venv/
 venv/
 env/
 ENV/
 *.env
+.env
 
 # ==========================
-# Pytest
+# 🧪 Pytest / Coverage
 # ==========================
 .pytest_cache/
 .cache/
 .coverage
+.coverage.*
 *.coverage
 htmlcov/
+nosetests.xml
+coverage.xml
 
 # ==========================
-# Allure
+# 📊 Allure Reports
 # ==========================
 allure-results/
 allure-report/
+allure-report-history/
 *.json
 *.xml
+*.txt
 
 # ==========================
-# IDE / OS
+# 🧠 IDE / OS
 # ==========================
 # VSCode
 .vscode/
 # PyCharm
 .idea/
-# Windows / Mac
+# macOS / Windows
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # ==========================
-# Selenium / Drivers
+# 🧭 Selenium / WebDrivers
 # ==========================
 *.db
 chromedriver
+chromedriver.exe
 geckodriver
+geckodriver.exe
 msedgedriver
+msedgedriver.exe
+
+# ==========================
+# 🧰 Divers
+# ==========================
+logs/
+tmp/
+temp/
