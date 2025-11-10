@@ -1,5 +1,6 @@
 import allure
 import locator
+from selenium.webdriver import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -23,3 +24,6 @@ class BasePage():
         element_text = element.text
         return element_text
 
+    def survoler_un_element(self, locator):
+        element = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(locator))
+        actions = ActionChains(self.driver).move_to_element(element).perform()
