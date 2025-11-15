@@ -17,6 +17,9 @@ class LoginPage(BasePage):
     champ_montBirth = (By.CSS_SELECTOR, "#months")
     champ_yearBirth = (By.ID, "years")
     bouton_register = (By.ID, "submitAccount")
+    champ_email_connexion = (By.ID, 'email')
+    champ_password = (By.ID, "passwd")
+    bouton_sign_in = By.ID, "SubmitLogin"
 
     # methodes
     def __init__(self, driver):
@@ -42,5 +45,10 @@ class LoginPage(BasePage):
         #soumettre
         self.cliquer_sur_un_element(self.bouton_register)
 
-
+    def se_connecter(self):
+        email = 'tbriand@example.org'
+        mdp = '0TifRQdm@0'
+        self.saisir_du_texte_dans_un_champ(self.champ_email_connexion, email)
+        self.saisir_du_texte_dans_un_champ(self.champ_pwd, mdp)
+        self.cliquer_sur_un_element(self.bouton_sign_in)
 

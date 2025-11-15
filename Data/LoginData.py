@@ -20,5 +20,4 @@ class LoginData():
             "day": random.randint(1,28),
             "month" : random.randint(1,12),
             "year" : faker.year()
-
         }
