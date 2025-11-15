@@ -10,6 +10,7 @@ class HomePage(BasePage):
     women_categorie = (By.XPATH, "//a[@title='Women']")
     t_shirt_sous_categorie = (By.LINK_TEXT, "T-shirts")
     logo_myShop = (By.CSS_SELECTOR, '.logo')
+    bouton_signin = (By.LINK_TEXT, 'Sign in')
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -23,3 +24,6 @@ class HomePage(BasePage):
 
     def cliquer_sur_le_logo(self):
         self.cliquer_sur_un_element(self.logo_myShop)
+
+    def cliquer_sur_signin(self):
+        self.cliquer_sur_un_element(self.bouton_signin)
