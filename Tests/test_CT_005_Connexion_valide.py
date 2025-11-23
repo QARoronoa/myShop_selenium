@@ -13,7 +13,7 @@ def test_connexion_valide(setup):
         home_page.cliquer_sur_signin()
 
     with allure.step('Saisir email + mot de passe valides.'):
-        login_page.se_connecter()
+        login_page.se_connecter_valide()
 
     with allure.step('Résultat attendu : Connexion réussie, vue My account.'):
         myAccount_page.verifier_titre_myAccountPage()
