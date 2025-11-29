@@ -10,7 +10,7 @@ def setup():
     driver.implicitly_wait(5)
 
     yield driver
-    driver.close()
+    driver.quit()
 
 
 @pytest.fixture
@@ -20,3 +20,7 @@ def mail_create_account():
 @pytest.fixture
 def creation_compte_formulaire():
     return LoginData.formulaire_create_account()
+
+@pytest.fixture
+def mail_pwd_oublie():
+    return LoginData.saisir_email_mdp_oublie()

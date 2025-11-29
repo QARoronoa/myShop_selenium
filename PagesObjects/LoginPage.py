@@ -20,6 +20,11 @@ class LoginPage(BasePage):
     champ_email_connexion = (By.ID, 'email')
     champ_password = (By.ID, "passwd")
     bouton_sign_in = By.ID, "SubmitLogin"
+    alert_connexion_failed = (By.CSS_SELECTOR, "div[class='alert alert-danger'] p")
+    forgot_pwd_link = (By.LINK_TEXT, "Forgot your password?")
+    champ_email_pwd_oublie = (By.ID, "email")
+    bouton_retrieve_pwd = (By.XPATH, "(//button[@type='submit'])[2]")
+    alert_message_mail_pwd_reboot = (By.CSS_SELECTOR, ".alert")
 
     # methodes
     def __init__(self, driver):
@@ -45,10 +50,34 @@ class LoginPage(BasePage):
         #soumettre
         self.cliquer_sur_un_element(self.bouton_register)
 
-    def se_connecter(self):
+    def se_connecter_valide(self):
         email = 'tbriand@example.org'
         mdp = '0TifRQdm@0'
         self.saisir_du_texte_dans_un_champ(self.champ_email_connexion, email)
         self.saisir_du_texte_dans_un_champ(self.champ_pwd, mdp)
         self.cliquer_sur_un_element(self.bouton_sign_in)
 
+    def se_connecter_invalide(self):
+        email = 'tbriand@esxample.org'
+        mdp = '0TifssRQdm@0'
+        self.saisir_du_texte_dans_un_champ(self.champ_email_connexion, email)
+        self.saisir_du_texte_dans_un_champ(self.champ_pwd, mdp)
+        self.cliquer_sur_un_element(self.bouton_sign_in)
+
+    def visualiser_message_connexion_failed(self):
+        message = self.capturer_text_element(self.alert_connexion_failed)
+        assert message == "There is 1 error"
+
+    def cliquer_sur_forgot_password(self):
+        self.cliquer_sur_un_element(self.forgot_pwd_link)
+
+    def saisir_un_mail_mpd_oublie_valide(self):
+        email = "tbriand@example.org"
+        self.saisir_du_texte_dans_un_champ(self.champ_email_pwd_oublie, email)
+
+    def cliquer_sur_le_bouton_retrieve_pwd(self):
+        self.cliquer_sur_un_element(self.bouton_retrieve_pwd)
+
+    def verifier_que_le_mail_de_reinitialisation_est_envoye(self):
+        message = self.capturer_text_element(self.alert_message_mail_pwd_reboot)
+        assert message == "A confirmation email has been sent to your address: tbriand@example.org"

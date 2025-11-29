@@ -21,3 +21,9 @@ class LoginData():
             "month" : random.randint(1,12),
             "year" : faker.year()
         }
+
+    @staticmethod
+    def saisir_email_mdp_oublie():
+        return {
+            "email" : faker.email()
+        }
