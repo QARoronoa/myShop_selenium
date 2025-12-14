@@ -11,6 +11,10 @@ class HomePage(BasePage):
     t_shirt_sous_categorie = (By.LINK_TEXT, "T-shirts")
     logo_myShop = (By.CSS_SELECTOR, '.logo')
     bouton_signin = (By.LINK_TEXT, 'Sign in')
+    barre_de_recherche = (By.ID, "search_query_top")
+    bouton_rechercher = (By.NAME, "submit_search")
+
+
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -27,3 +31,12 @@ class HomePage(BasePage):
 
     def cliquer_sur_signin(self):
         self.cliquer_sur_un_element(self.bouton_signin)
+
+    def saisir_un_article_dans_la_barre_de_recherche(self, item):
+        self.saisir_du_texte_dans_un_champ(self.barre_de_recherche, item)
+
+    def cliquer_sur_le_bouton_rechercher(self):
+        self.cliquer_sur_un_element(self.bouton_rechercher)
+
+    def cliquer_sur_categorie_women(self):
+        self.cliquer_sur_un_element(self.women_categorie)

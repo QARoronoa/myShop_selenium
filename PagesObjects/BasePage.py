@@ -44,3 +44,5 @@ class BasePage():
             return True
         except TimeoutException:
             return False
+
+
