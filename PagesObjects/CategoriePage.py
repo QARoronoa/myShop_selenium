@@ -21,3 +21,6 @@ class CategoriePage(BasePage):
 
     def basculer_en_vu_liste(self):
         self.cliquer_sur_un_element(self.bouton_vue_liste)
+
+    def ouvrir_la_fiche_produit(self, partial_link):
+        self.driver.find_element(By.PARTIAL_LINK_TEXT, partial_link).click()
