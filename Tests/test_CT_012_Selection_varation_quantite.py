@@ -19,7 +19,12 @@ def test_selection_varation_quantite(setup):
     with allure.step("Ouvrir la fiche produit printed summer dress"):
         categorie_page.ouvrir_la_fiche_dune_dress("Printed Summer Dress")
 
+    with allure.step("augmenter la quantite"):
+        article_page.modifier_la_quantite(3)
+
     with allure.step("selectionner une taille"):
         article_page.selectionner_une_taille()
         time.sleep(1)
+
+    with allure.step("selectionner une couleur"):
         article_page.selectionner_la_couleur_orange()

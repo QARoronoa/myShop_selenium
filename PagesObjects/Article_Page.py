@@ -10,6 +10,7 @@ class ArticlePage(BasePage):
     #locators
     bouton_view_large = (By.CSS_SELECTOR, ".span_link")
     couleur_orange = (By.ID, "color_13")
+    champ_quantite = (By.ID, "quantity_wanted")
 
     #methodes
     def __init__(self, driver):
@@ -25,3 +26,6 @@ class ArticlePage(BasePage):
 
     def selectionner_la_couleur_orange(self):
         self.cliquer_sur_un_element(self.couleur_orange)
+
+    def modifier_la_quantite(self, qauntite):
+        self.saisir_du_texte_dans_un_champ(self.champ_quantite, qauntite)
