@@ -1,5 +1,7 @@
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
 from PagesObjects.BasePage import BasePage
 
@@ -40,3 +42,13 @@ class HomePage(BasePage):
 
     def cliquer_sur_categorie_women(self):
         self.cliquer_sur_un_element(self.women_categorie)
+
+    def survoler_une_categorie(self, lien_cate):
+        categorie = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.LINK_TEXT, lien_cate)))
+        action = ActionChains(self.driver)
+        action.move_to_element(categorie).perform()
+
+    def selectionner_une_sous_cate_dresses(self, sous_cate_dresses):
+        sous_categorie = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.LINK_TEXT, sous_cate_dresses)))
+        sous_categorie.click()
+

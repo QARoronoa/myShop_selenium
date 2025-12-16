@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
-
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from PagesObjects.BasePage import BasePage
 
 class CategoriePage(BasePage):
@@ -24,3 +25,7 @@ class CategoriePage(BasePage):
 
     def ouvrir_la_fiche_produit(self, partial_link):
         self.driver.find_element(By.PARTIAL_LINK_TEXT, partial_link).click()
+
+    def ouvrir_la_fiche_dune_dress(self, dress):
+        robe = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.LINK_TEXT, dress)))
+        robe.click()
