@@ -29,3 +29,29 @@ class ArticlePage(BasePage):
 
     def modifier_la_quantite(self, qauntite):
         self.saisir_du_texte_dans_un_champ(self.champ_quantite, qauntite)
+
+    def accerder_au_frame(self):
+        wait = WebDriverWait(self.driver, 20)
+        frame = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, ".fancybox-iframe")))
+        self.driver.switch_to.frame(frame)
+        wait.until(EC.presence_of_element_located((By.ID, "product")))
+
+    def quitter_frame(self):
+        self.driver.switch_to.default_content()
+
+    def attendre_le_bouton_add_to_cart(self):
+        wait = WebDriverWait(self.driver, 20)
+        btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//*[text()='Add to cart']")))
+        btn.click()
+
+    def verifier_que_larticle_est_ajoute(self):
+        wait = WebDriverWait(self.driver, 20)
+        el = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "h2")))
+
+
+
+
+
+
+
+

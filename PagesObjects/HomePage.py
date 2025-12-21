@@ -15,6 +15,7 @@ class HomePage(BasePage):
     bouton_signin = (By.LINK_TEXT, 'Sign in')
     barre_de_recherche = (By.ID, "search_query_top")
     bouton_rechercher = (By.NAME, "submit_search")
+    best_selers_link = (By.XPATH, "//a[@class='blockbestsellers']")
 
 
 
@@ -51,4 +52,7 @@ class HomePage(BasePage):
     def selectionner_une_sous_cate_dresses(self, sous_cate_dresses):
         sous_categorie = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.LINK_TEXT, sous_cate_dresses)))
         sous_categorie.click()
+
+    def cliquer_sur_best_sellers(self):
+        self.cliquer_sur_un_element(self.best_selers_link)
 
