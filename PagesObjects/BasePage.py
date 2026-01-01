@@ -36,6 +36,13 @@ class BasePage():
 
     def dropdown(self, locator, value):
         element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(locator))
+
+
+
+
+
+
+
         Select(element).select_by_value(str(value))
 
     def element_visible(self, locator):

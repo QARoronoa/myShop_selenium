@@ -49,12 +49,13 @@ class ArticlePage(BasePage):
         wait = WebDriverWait(self.driver, 20)
         el = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "h2")))
 
-    def verifier_la_presence_du_bouto_proceed_checkout(self):
+    def verifier_la_presence_du_bouton_proceed_checkout(self):
         el_text = self.capturer_text_element(self.bouton_proceed_to_checkout_popin)
         assert el_text == "Proceed to checkout"
 
-    def cliquer_sur_procced_to_checkout(self):
+    def cliquer_sur_proceed_to_checkout(self):
         self.cliquer_sur_un_element(self.bouton_proceed_to_checkout_popin)
+
 
 
 

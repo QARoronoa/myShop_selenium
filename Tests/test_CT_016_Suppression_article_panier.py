@@ -1,10 +1,12 @@
+import time
+
 import allure
-from PagesObjects.HomePage import HomePage
 from PagesObjects.Article_Page import ArticlePage
 from PagesObjects.BestSellerPage import BestSellerPage
+from PagesObjects.HomePage import HomePage
 from PagesObjects.CartPage import CartPage
 
-def test_mise_a_jour_quantite_panier(setup):
+def test_suppression_article_panier(setup):
     home_page = HomePage(setup)
     best_sellers_page = BestSellerPage(setup)
     article_page = ArticlePage(setup)
@@ -25,7 +27,16 @@ def test_mise_a_jour_quantite_panier(setup):
         article_page.attendre_le_bouton_add_to_cart()
         article_page.quitter_frame()
         article_page.verifier_que_larticle_est_ajoute()
+        article_page.verifier_la_presence_du_bouton_proceed_checkout()
 
-    with allure.step("cliquer sur_proced to checkout"):
-        article_page.cliquer_sur_procced_to_checkout()
-        cart_page.modifier_la_quantite()
+    with allure.step("Cliquer sur proceed to checkout"):
+        article_page.cliquer_sur_proceed_to_checkout()
+
+
+    with allure.step("supprimer l'article"):
+        cart_page.cliquer_sur_le_bouton_delete()
+
+    with allure.step("verifier le message panier vide"):
+        cart_page.verifier_la_presence_message_panier_vide()
+
+        time.sleep(6)
