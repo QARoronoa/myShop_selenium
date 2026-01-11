@@ -39,4 +39,3 @@ def test_suppression_article_panier(setup):
     with allure.step("verifier le message panier vide"):
         cart_page.verifier_la_presence_message_panier_vide()
 
-        time.sleep(6)

@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from Data.LoginData import LoginData
+from Data.AdressData import AddressData
 @pytest.fixture(scope='function')
 def setup():
     options = Options()
@@ -24,3 +25,7 @@ def creation_compte_formulaire():
 @pytest.fixture
 def mail_pwd_oublie():
     return LoginData.saisir_email_mdp_oublie()
+
+@pytest.fixture
+def formulaire_adresse():
+    return AddressData.form_address()

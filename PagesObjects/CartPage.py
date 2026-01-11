@@ -8,6 +8,7 @@ class CartPage(BasePage):
     champ_quantite = (By.CSS_SELECTOR, ".cart_quantity_input")
     bouton_delete = (By.CSS_SELECTOR, ".cart_quantity_delete")
     message_panier_vide = (By.CSS_SELECTOR, ".alert-warning")
+    bouton_proceed_to_checout = (By.LINK_TEXT, "Proceed to checkout")
 
     #methodes
     def __init__(self, driver):
@@ -22,3 +23,6 @@ class CartPage(BasePage):
     def verifier_la_presence_message_panier_vide(self):
         message = self.capturer_text_element(self.message_panier_vide)
         assert message == "Your shopping cart is empty."
+
+    def cliquer_sur_procced_to_checkout(self):
+        self.cliquer_sur_un_element(self.bouton_proceed_to_checout)
