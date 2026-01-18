@@ -8,6 +8,7 @@ class MyAccountPage(BasePage):
     #locators
     success_message_compte_created = (By.CSS_SELECTOR, ".alert-success")
     nom_utilisateur = (By.CSS_SELECTOR, '.account')
+    bouton_historique_commande = (By.CSS_SELECTOR, 'a[title="Orders"]')
 
 
     def __init__(self, driver):
@@ -24,3 +25,6 @@ class MyAccountPage(BasePage):
 
     def verifier_que_le_user_est_connecte(self):
         self.element_visible(self.nom_utilisateur)
+
+    def cliquer_sur_historique_commande(self):
+        self.cliquer_sur_un_element(self.bouton_historique_commande)

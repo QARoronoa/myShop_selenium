@@ -16,6 +16,7 @@ class HomePage(BasePage):
     barre_de_recherche = (By.ID, "search_query_top")
     bouton_rechercher = (By.NAME, "submit_search")
     best_selers_link = (By.XPATH, "//a[@class='blockbestsellers']")
+    bouton_my_account = (By.CSS_SELECTOR, ".account")
 
 
 
@@ -55,4 +56,7 @@ class HomePage(BasePage):
 
     def cliquer_sur_best_sellers(self):
         self.cliquer_sur_un_element(self.best_selers_link)
+
+    def cliquer_sur_mon_compte(self):
+        self.cliquer_sur_un_element(self.bouton_my_account)
 
